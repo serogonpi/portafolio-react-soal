@@ -1,4 +1,5 @@
-import react from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import '../assets/css/styles.css'
 
 function Header() {
@@ -10,10 +11,9 @@ function Header() {
                         <h1>Nuestro Portafolio</h1>
                     </div>
                     <ul className="nav-menu">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/posts">Posts</a></li>
-                        <li><a href="/gallery">Galería</a></li>
-                        <li><a href="/contacto">Contacto</a></li>
+                        <li><Link to='/'>Inicio</Link></li>
+                        <li><Link to="/posts">Posts</Link></li>
+                        <li><Link to="/gallery">Galería</Link></li>
                     </ul>
                 </div>
             </nav>

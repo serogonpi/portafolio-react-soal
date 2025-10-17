@@ -1,15 +1,23 @@
-import React from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
+import Gallery from './components/Gallery'
+import Posts from './components/Posts'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/posts' element={<Posts />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   )
 }
 
