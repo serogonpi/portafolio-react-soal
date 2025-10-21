@@ -1,24 +1,29 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './components/Home'
-import Gallery from './components/Gallery'
-import Posts from './components/Posts'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Blog from './pages/Blog';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='App'>
+    <Router>
+      <div className="App">
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/gallery' element={<Gallery />} />
-          <Route path='/posts' element={<Posts />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/servicios" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
       </div>
-    </BrowserRouter>
-  )
+    </Router>
+  );
 }
 
 export default App;

@@ -2,7 +2,7 @@ import React from "react";
 import '../assets/css/styles.css'
 import '../assets/css/posts-page.css'
 
-function Posts() {
+function Blog() {
     return (
         <main>
             <section id="inicio" className="hero">
@@ -196,4 +196,4 @@ function Posts() {
     )
 }
 
-export default Posts;
+export default Blog;

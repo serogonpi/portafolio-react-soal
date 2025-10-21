@@ -2,7 +2,7 @@ import React from "react";
 import '../assets/css/styles.css'
 import '../assets/css/gallery.css'
 
-function Gallery() {
+function Services() {
     return (
         <main>
         <section id="inicio" className="hero">
@@ -119,4 +119,4 @@ function Gallery() {
     )
 }
 
-export default Gallery;
+export default Services;
