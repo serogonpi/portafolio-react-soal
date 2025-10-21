@@ -17,6 +17,7 @@ import Footer from './components/layout/Footer';
 // Pages
 import Home from './pages/Home';
 import Services from './pages/Services';
+import ServiceDetail from './components/services/ServiceDetail';
 import Blog from './pages/Blog';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/servicios" element={<Services />} />
+              <Route path="/servicios/:slug" element={<ServiceDetail />} />
               <Route path="/blog" element={<Blog />} />
             </Routes>
             <Footer />
