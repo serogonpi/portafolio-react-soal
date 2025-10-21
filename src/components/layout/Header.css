@@ -1,0 +1,86 @@
+/* src/components/layout/Header.css */
+/* Estilos adicionales para el header con carrito */
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo h1 {
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover h1 {
+  color: #3498db;
+}
+
+.cart-menu-item {
+  position: relative;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.cart-icon {
+  font-size: 1.3rem;
+}
+
+.cart-text {
+  font-weight: 600;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: badge-pop 0.3s ease;
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-text {
+    display: none;
+  }
+
+  .cart-link {
+    padding: 8px 12px;
+  }
+
+  .cart-badge {
+    top: -5px;
+    right: -5px;
+  }
+}

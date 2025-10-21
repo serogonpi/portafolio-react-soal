@@ -19,6 +19,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import ServiceDetail from './components/services/ServiceDetail';
 import Blog from './pages/Blog';
+import Cart from './pages/Cart';
 
 function App() {
   // Inicializar datos al cargar la aplicación
@@ -37,6 +38,7 @@ function App() {
               <Route path="/servicios" element={<Services />} />
               <Route path="/servicios/:slug" element={<ServiceDetail />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/carrito" element={<Cart />} />
             </Routes>
             <Footer />
           </div>
