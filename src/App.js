@@ -15,7 +15,6 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
 // Pages
-// Pages
 import Home from './pages/Home';
 import Services from './pages/Services';
 import ServiceDetail from './components/services/ServiceDetail';
@@ -24,6 +23,8 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import OrderSuccess from './components/checkout/OrderSuccess';
 import OrderError from './components/checkout/OrderError';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   // Inicializar datos al cargar la aplicación
@@ -46,6 +47,8 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/checkout/exito/:orderId" element={<OrderSuccess />} />
               <Route path="/checkout/error" element={<OrderError />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/registro" element={<Register />} />
             </Routes>
             <Footer />
           </div>

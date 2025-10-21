@@ -1,10 +1,13 @@
+// src/data/users.js
+// Base de datos simulada de usuarios
+
 const users = [
   {
     id: 1,
     email: "admin@sorl.com",
-    password: "admin",
+    password: "admin123", // En producción esto sería un hash
     role: "admin",
-    name: "admin",
+    name: "SORL Admin",
     createdAt: new Date().toISOString()
   },
   {
