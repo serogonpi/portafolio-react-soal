@@ -25,7 +25,7 @@ function Footer() {
                             <a href="/gallery" className="text-white-50 text-decoration-none hover-link">
                                 Galería
                             </a>
-                            <a href="/contacto" className="text-white-50 text-decoration-none hover-link">
+                            <a href="/contact" className="text-white-50 text-decoration-none hover-link">
                                 Contacto
                             </a>
                         </div>

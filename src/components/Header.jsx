@@ -10,20 +10,20 @@ function Header() {
                     <Link className="navbar-brand logo" to="/">
                         <h1 className="m-0 fs-4 fw-bold text-success">Nuestro Portafolio</h1>
                     </Link>
-                    
+
                     {/* Botón hamburguesa para mobile */}
-                    <button 
-                        className="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
                         data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" 
-                        aria-expanded="false" 
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    
+
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto gap-3">
                             <li className="nav-item">
@@ -34,6 +34,9 @@ function Header() {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/gallery">Galería</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/contact">Contacto</Link>  {/* ← NUEVO */}
                             </li>
                         </ul>
                     </div>
