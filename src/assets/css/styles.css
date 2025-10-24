@@ -49,12 +49,7 @@ textarea:focus {
 }
 
 .header {
-    background-color: #ffffff;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
 }
 
@@ -71,7 +66,6 @@ textarea:focus {
 .logo h1 {
     color: #059669;
     font-size: 1.8rem;
-    margin: 0;
     font-weight: 700;
 }
 
@@ -79,6 +73,25 @@ textarea:focus {
     display: flex;
     list-style: none;
     gap: 30px;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 16px !important;
+    border-radius: 6px;
+}
+
+.nav-link:hover {
+    background-color: #ecfdf5;
+    color: #059669 !important;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background-color: #059669;
+    color: white !important;
 }
 
 .nav-menu a {
@@ -117,9 +130,28 @@ textarea:focus {
 .hero {
     background: linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%);
     color: white;
-    padding: 100px 0 80px;
-    text-align: center;
-    justify-content: center;
+    padding: 120px 0 80px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero .btn-light:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transform: translateY(-2px);
+}
+
+.hero .btn-outline-light {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.hero .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #059669;
+    transform: translateY(-2px);
 }
 
 .hero-container {
@@ -129,15 +161,10 @@ textarea:focus {
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -151,13 +178,7 @@ textarea:focus {
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
 }
 
 .btn-primary {
@@ -193,6 +214,7 @@ textarea:focus {
     background-color: rgba(149, 213, 168, 0.289);
 }
 
+
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -216,17 +238,11 @@ textarea:focus {
 }
 
 .stat {
-    text-align: center;
-    padding: 30px 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .stat h3 {
-    font-size: 2.5rem;
     color: #10b981;
-    margin-bottom: 10px;
 }
 
 .stat p {
@@ -246,16 +262,18 @@ textarea:focus {
 }
 
 .project-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.project-card .card-title {
+    color: #1B4332;
+    font-weight: 700;
 }
 
 .project-image {
@@ -298,6 +316,14 @@ textarea:focus {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+.bg-success-subtle {
+    background-color: #dcfce7 !important;
+}
+
+.text-success-emphasis {
+    color: #15803d !important;
 }
 
 .form-group {
@@ -380,6 +406,16 @@ textarea:focus {
     height: auto;
 }
 
+@media (max-width: 991px) {
+    .about .col-lg-4 .d-flex {
+        flex-direction: row !important;
+    }
+
+    .about .stat {
+        flex: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -413,7 +449,7 @@ textarea:focus {
     }
 
     body {
-        padding-top: 120px;
+        padding-top: 70px;
     }
 
     .about-content {
@@ -431,7 +467,7 @@ textarea:focus {
     }
 
     .section-title {
-        font-size: 2rem;
+        color: #1B4332;
     }
 
     .projects-grid {
@@ -475,5 +511,11 @@ textarea:focus {
 
     .hero-container {
         padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about .col-lg-4 .d-flex {
+        flex-direction: column !important;
     }
 }
