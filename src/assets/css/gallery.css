@@ -1,0 +1,82 @@
+.gallery {
+    padding: 60px 0;
+    background-color: rgba(149, 213, 168, 0.289);
+}
+
+.gallery-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    animation: slideUp 0.6s ease-out;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.gallery-image {
+    overflow: hidden;
+}
+
+.image-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+.gallery-item .card-title {
+    color: #1f2937;
+}
+
+.gallery-item .card-text {
+    line-height: 1.6;
+}
+
+/* Animación */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Colores de badges personalizados */
+.bg-success-subtle {
+    background-color: #ecfdf5 !important;
+}
+
+.text-success-emphasis {
+    color: #059669 !important;
+}
+
+.bg-primary-subtle {
+    background-color: #dbeafe !important;
+}
+
+.text-primary-emphasis {
+    color: #1e40af !important;
+}
+
+.bg-warning-subtle {
+    background-color: #fef3c7 !important;
+}
+
+.text-warning-emphasis {
+    color: #b45309 !important;
+}
+
+.bg-info-subtle {
+    background-color: #e0f2fe !important;
+}
+
+.text-info-emphasis {
+    color: #0369a1 !important;
+}

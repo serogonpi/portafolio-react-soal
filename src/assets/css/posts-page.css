@@ -1,0 +1,85 @@
+.posts-section {
+    padding: 80px 0;
+    background-color: rgba(149, 213, 168, 0.289);
+}
+
+.post-card,
+.featured-post {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.post-card:hover,
+.featured-post:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.post-date {
+    color: #059669;
+}
+
+.post-card .card-title,
+.featured-post .card-title {
+    color: #1B4332;
+}
+
+/* Artículo completo */
+.article-content {
+    color: #444;
+}
+
+.article-content h2,
+.article-content h3 {
+    color: #1B4332;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content blockquote {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.article-content blockquote cite {
+    font-style: normal;
+}
+
+.external-link {
+    transition: all 0.3s ease;
+}
+
+.external-link:hover {
+    color: #ad1457 !important;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botón success personalizado */
+.btn-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+}
