@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import '../assets/css/styles.css'
 import '../assets/css/gallery.css'
 
