@@ -21,7 +21,6 @@ function Posts() {
             <section id="posts" className="posts-section py-5">
                 <div className="container">
                     <div className="row g-4 mb-5">
-                        {/* Post Destacado - Ocupa toda la fila */}
                         <div className="col-12">
                             <article className="card featured-post shadow border-0 rounded-4 overflow-hidden">
                                 <div className="row g-0">

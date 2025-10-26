@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import '../assets/css/styles.css'
 
+// Valores finales de los contadores
+const finalValues = {
+    projects: 25,
+    years: 3,
+    clients: 15
+};
+
 function Home() {
     // STATE: Valores de los contadores
     const [stats, setStats] = useState({
@@ -8,13 +15,6 @@ function Home() {
         years: 0,
         clients: 0
     });
-
-    // Valores finales de los contadores
-    const finalValues = {
-        projects: 25,
-        years: 3,
-        clients: 15
-    };
 
     // useEffect: Animar los contadores al cargar el componente
     useEffect(() => {
