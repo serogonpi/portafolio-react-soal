@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import '../assets/css/styles.css'
 
 // Valores finales de los contadores
