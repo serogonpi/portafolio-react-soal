@@ -1,7 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../assets/css/styles.css'
 
+// Valores finales de los contadores
+const finalValues = {
+    projects: 25,
+    years: 3,
+    clients: 15
+};
+
 function Home() {
+    // STATE: Valores de los contadores
+    const [stats, setStats] = useState({
+        projects: 0,
+        years: 0,
+        clients: 0
+    });
+
+    // useEffect: Animar los contadores al cargar el componente
+    useEffect(() => {
+        const duration = 2000; // 2 segundos
+        const steps = 60; // 60 pasos
+        const interval = duration / steps;
+
+        let currentStep = 0;
+
+        const timer = setInterval(() => {
+            currentStep++;
+            const progress = currentStep / steps;
+
+            setStats({
+                projects: Math.floor(finalValues.projects * progress),
+                years: Math.floor(finalValues.years * progress),
+                clients: Math.floor(finalValues.clients * progress)
+            });
+
+            if (currentStep >= steps) {
+                setStats(finalValues); // Asegurar valores finales exactos
+                clearInterval(timer);
+            }
+        }, interval);
+
+        return () => clearInterval(timer); // Cleanup
+    }, []); // Solo ejecutar al montar el componente
+
+    // Componente reutilizable para cada stat (recibe PROPS)
+    const StatCard = ({ value, label, suffix = '+' }) => {
+        return (
+            <div className="stat text-center p-4 bg-white rounded-3 shadow">
+                <h3 className="display-4 fw-bold text-success mb-2">
+                    {value}{suffix}
+                </h3>
+                <p className="text-secondary mb-0">{label}</p>
+            </div>
+        );
+    };
+
     return (
         <main>
             <section id="inicio" className="hero">
@@ -63,18 +116,18 @@ function Home() {
                         {/* Columna de stats - 4 columnas en desktop */}
                         <div className="col-lg-4">
                             <div className="d-flex flex-column gap-4">
-                                <div className="stat text-center p-4 bg-white rounded-3 shadow">
-                                    <h3 className="display-4 fw-bold text-success mb-2">25+</h3>
-                                    <p className="text-secondary mb-0">Proyectos Completados</p>
-                                </div>
-                                <div className="stat text-center p-4 bg-white rounded-3 shadow">
-                                    <h3 className="display-4 fw-bold text-success mb-2">3+</h3>
-                                    <p className="text-secondary mb-0">Años de Experiencia</p>
-                                </div>
-                                <div className="stat text-center p-4 bg-white rounded-3 shadow">
-                                    <h3 className="display-4 fw-bold text-success mb-2">15+</h3>
-                                    <p className="text-secondary mb-0">Clientes Felices</p>
-                                </div>
+                                <StatCard 
+                                    value={stats.projects} 
+                                    label="Proyectos Completados" 
+                                />
+                                <StatCard 
+                                    value={stats.years} 
+                                    label="Años de Experiencia" 
+                                />
+                                <StatCard 
+                                    value={stats.clients} 
+                                    label="Clientes Felices" 
+                                />
                             </div>
                         </div>
                     </div>
