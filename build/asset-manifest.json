@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b64ed4b8.css",
+    "main.js": "/static/js/main.0f9a2b72.js",
+    "static/js/453.559f6257.chunk.js": "/static/js/453.559f6257.chunk.js",
+    "static/media/banking_app.png": "/static/media/banking_app.2525938b624a22e85321.png",
+    "static/media/ecommerce.jpeg": "/static/media/ecommerce.6e48c1a667e5c3520523.jpeg",
+    "static/media/dashboard.png": "/static/media/dashboard.9390f8e2460ec2bb28b4.png",
+    "static/media/react.png": "/static/media/react.300b51f2917b4ad427a3.png",
+    "static/media/identidad_visual.jpg": "/static/media/identidad_visual.c80f135928ced525e8e1.jpg",
+    "static/media/gridvsflexbox.jpg": "/static/media/gridvsflexbox.9acc650baf43fa9ec628.jpg",
+    "static/media/delivery_app.png": "/static/media/delivery_app.904e456f74e3f6a62cee.png",
+    "static/media/fitness-app.png": "/static/media/fitness-app.879d09d320cd758d7167.png",
+    "static/media/Typescript_logo.png": "/static/media/Typescript_logo.d9adb615b14de6c30bb3.png",
+    "static/media/diseno-web.png": "/static/media/diseno-web.b650ac82f6b1552801c5.png",
+    "static/media/branding_cafe_premium.jpg": "/static/media/branding_cafe_premium.345655d9daa9d3ba3af8.jpg",
+    "index.html": "/index.html",
+    "main.b64ed4b8.css.map": "/static/css/main.b64ed4b8.css.map",
+    "main.0f9a2b72.js.map": "/static/js/main.0f9a2b72.js.map",
+    "453.559f6257.chunk.js.map": "/static/js/453.559f6257.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b64ed4b8.css",
+    "static/js/main.0f9a2b72.js"
+  ]
+}
