@@ -8,8 +8,8 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      'src/**/*.js': ['webpack'],
-      'src/**/*.jsx': ['webpack']
+      'src/**/*.js': ['webpack', 'coverage'],
+      'src/**/*.jsx': ['webpack', 'coverage']
     },
 
     webpack: {
@@ -41,11 +41,19 @@ module.exports = function(config) {
       }
     },
 
+    webpackMiddleware: {
+      stats: 'errors-only'
+    },
+
     reporters: ['spec', 'coverage'],
     
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/'
+      dir: 'coverage/',
+      reporters: [
+        { type: 'html', subdir: 'html' },
+        { type: 'text-summary' },  // ESTO muestra la tabla en terminal
+        { type: 'lcov', subdir: 'lcov' }
+      ]
     },
 
     port: 9876,
@@ -53,6 +61,8 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    concurrency: Infinity
+    concurrency: Infinity,
+    browserNoActivityTimeout: 60000,
+    captureTimeout: 210000
   })
 }
