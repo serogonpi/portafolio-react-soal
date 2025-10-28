@@ -1,8 +1,3 @@
-/**
- * TESTS UNITARIOS - PORTAFOLIO REACT
- * Total: 7 pruebas estratégicas que cubren los requisitos de la evaluación
- */
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';

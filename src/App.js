@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import Gallery from './components/Gallery'
 import Posts from './components/Posts'
-import Contact from './components/Contact'  // ← NUEVO
+import Contact from './components/Contact'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/posts' element={<Posts />} />
-          <Route path='/contact' element={<Contact />} />  {/* ← NUEVO */}
+          <Route path='/contact' element={<Contact />} /> 
         </Routes>
         <Footer />
       </div>
