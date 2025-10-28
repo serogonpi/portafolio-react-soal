@@ -1,9 +1,10 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import '../assets/css/styles.css'
 
 // Valores finales de los contadores
 const finalValues = {
-    projects: 25,
+    projects: 35,
     years: 3,
     clients: 15
 };
@@ -72,7 +73,7 @@ function Home() {
                                 <a href="#proyectos" className="btn btn-light btn-lg px-4 py-3 fw-bold">
                                     Ver Proyectos
                                 </a>
-                                <a href="#contacto" className="btn btn-outline-light btn-lg px-4 py-3 fw-bold">
+                                <a href="/contact" className="btn btn-outline-light btn-lg px-4 py-3 fw-bold">
                                     Contactar
                                 </a>
                             </div>

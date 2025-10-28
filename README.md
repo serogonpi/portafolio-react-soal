@@ -258,6 +258,14 @@ handleSubmit() → validateForm()
 
 ---
 
+### **Imagenes Mobile**
+<img src="/src/assets/images/1.jpg" alt="Logo" width="250"/>
+<img src="/src/assets/images/2.jpg" alt="Logo" width="250"/>
+<img src="/src/assets/images/3.jpg" alt="Logo" width="250"/>
+<img src="/src/assets/images/4.jpg" alt="Logo" width="250"/>
+<img src="/src/assets/images/5.jpg" alt="Logo" width="250"/>
+<img src="/src/assets/images/6.jpg" alt="Logo" width="250"/>
+
 ## 👥 Autores
 
 ### **Equipo de Desarrollo**
