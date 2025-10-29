@@ -1,0 +1,2 @@
+Vercel: https://portafolio-react-soal.vercel.app/
+GitHub: https://github.com/serogonpi/portafolio-react-soal

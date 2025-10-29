@@ -273,6 +273,10 @@ handleSubmit() → validateForm()
 | Nombre | GitHub |
 |--------|--------|
 | **[Sebastián González]** | [@serogonpi](https://github.com/serogonpi) |
+| **[Oscar Flores]** | |
+| **[Leroy Rodriguez]** | |
+| **[Andres Ibañez]** | |
+
 
 
 ## 📄 Licencia
