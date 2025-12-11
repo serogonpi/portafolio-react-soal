@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../assets/css/styles.css'
 import '../assets/css/contacto.css'
 
 function Contact() {
+    // ✅ NUEVO: Estados para datos de la API
+    const [tiposProyecto, setTiposProyecto] = useState([]);
+    const [presupuestos, setPresupuestos] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     // Estado para los datos del formulario
     const [formData, setFormData] = useState({
         nombre: '',
@@ -22,6 +27,32 @@ function Contact() {
 
     // Estado para el botón de envío
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // ✅ NUEVO: Cargar datos de la API al montar el componente
+    useEffect(() => {
+        const cargarDatos = async () => {
+            try {
+                // Cargar tipos de proyecto
+                const resTipos = await fetch('http://localhost:5000/api/tipos-proyecto');
+                const dataTipos = await resTipos.json();
+                setTiposProyecto(dataTipos);
+
+                // Cargar presupuestos
+                const resPres = await fetch('http://localhost:5000/api/presupuestos');
+                const dataPres = await resPres.json();
+                setPresupuestos(dataPres);
+
+                console.log('✅ Datos cargados de la API');
+            } catch (error) {
+                console.error('❌ Error cargando datos:', error);
+                alert('Error al cargar los datos del formulario. Verifica que la API esté corriendo.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        cargarDatos();
+    }, []);
 
     // Función para manejar cambios en los inputs
     const handleChange = (e) => {
@@ -112,13 +143,13 @@ function Contact() {
             return;
         }
 
-        // Enviar al backend real
+        // Enviar al backend
         setIsSubmitting(true);
 
         try {
-            console.log('Enviando petición al backend...');
+            console.log('📤 Enviando petición al backend...');
 
-            const response = await fetch('/api/contact', {  // ← El proxy lo convierte a localhost:5000
+            const response = await fetch('http://localhost:5000/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -126,6 +157,8 @@ function Contact() {
                 body: JSON.stringify({
                     nombre: formData.nombre,
                     email: formData.email,
+                    telefono: formData.telefono,
+                    empresa: formData.empresa,
                     asunto: formData.asunto,
                     mensaje: formData.mensaje,
                     tipoProyecto: formData.tipoProyecto,
@@ -133,10 +166,10 @@ function Contact() {
                 })
             });
 
-            console.log('Respuesta recibida:', response.status);
+            console.log('✅ Respuesta recibida:', response.status);
 
             const result = await response.json();
-            console.log('Resultado:', result);
+            console.log('📦 Resultado:', result);
 
             if (result.success) {
                 alert('¡Mensaje enviado con éxito! Te responderemos pronto.');
@@ -160,12 +193,24 @@ function Contact() {
             }
 
         } catch (error) {
-            console.error('Error completo:', error);
-            alert('Ocurrió un error al enviar el mensaje. Asegúrate de que el servidor esté corriendo.');
+            console.error('❌ Error completo:', error);
+            alert('Ocurrió un error al enviar el mensaje. Asegúrate de que el servidor esté corriendo en http://localhost:5000');
         } finally {
             setIsSubmitting(false);
         }
     };
+
+    // ✅ Mostrar loading mientras cargan los datos
+    if (loading) {
+        return (
+            <div className="container text-center py-5">
+                <div className="spinner-border text-success" role="status">
+                    <span className="visually-hidden">Cargando...</span>
+                </div>
+                <p className="mt-3">Cargando formulario...</p>
+            </div>
+        );
+    }
 
     return (
         <main>
@@ -355,7 +400,7 @@ function Contact() {
                                             />
                                         </div>
 
-                                        {/* Tipo de Proyecto */}
+                                        {/* ✅ TIPO DE PROYECTO - DINÁMICO DESDE LA API */}
                                         <div className="mb-4">
                                             <label htmlFor="tipoProyecto" className="form-label fw-semibold text-success">
                                                 Tipo de Proyecto *
@@ -368,13 +413,11 @@ function Contact() {
                                                 onChange={handleChange}
                                             >
                                                 <option value="">Selecciona una opción</option>
-                                                <option value="sitio-web">Sitio Web Corporativo</option>
-                                                <option value="ecommerce">Tienda Online</option>
-                                                <option value="aplicacion">Aplicación Web</option>
-                                                <option value="rediseño">Rediseño de Sitio</option>
-                                                <option value="mantenimiento">Mantenimiento Web</option>
-                                                <option value="consultoria">Consultoría</option>
-                                                <option value="otro">Otro</option>
+                                                {tiposProyecto.map(tipo => (
+                                                    <option key={tipo.id} value={tipo.codigo}>
+                                                        {tipo.nombre}
+                                                    </option>
+                                                ))}
                                             </select>
                                             {errors.tipoProyecto && (
                                                 <div className="invalid-feedback d-block">
@@ -383,7 +426,7 @@ function Contact() {
                                             )}
                                         </div>
 
-                                        {/* Presupuesto */}
+                                        {/* ✅ PRESUPUESTO - DINÁMICO DESDE LA API */}
                                         <div className="mb-4">
                                             <label htmlFor="presupuesto" className="form-label fw-semibold text-success">
                                                 Presupuesto Aproximado
@@ -396,11 +439,11 @@ function Contact() {
                                                 onChange={handleChange}
                                             >
                                                 <option value="">Selecciona un rango</option>
-                                                <option value="menos-500.000">Menos de $500.000</option>
-                                                <option value="500.000-1.000.000">$500.000 - $1.000.000</option>
-                                                <option value="1.000.000-1.500.000">$1.000.000 - $1.500.000</option>
-                                                <option value="1.500.000-2.000.000">$1.500.000 - $2.000.000</option>
-                                                <option value="mas-2.000.000">Más de $2.000.000</option>
+                                                {presupuestos.map(pres => (
+                                                    <option key={pres.id} value={pres.codigo}>
+                                                        {pres.nombre}
+                                                    </option>
+                                                ))}
                                             </select>
                                         </div>
 
